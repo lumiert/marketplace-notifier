@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# This file is the main executable for the application.
+# Este arquivo é o executável principal para a aplicação.
+
+# Copyright (c) 2025, Lumiert
+# Licensed under the MIT License.
+# See LICENSE file for details.
+
+from plyer import notification
+
+def show_notification(title, message, timeout=5):
+    try:
+        notification.notify(
+            title=title,
+            message=message,
+            timeout=timeout  # Em segundos (pode ser ignorado dependendo do SO)
+        )
+    except NotImplementedError as e:
+        print(f"[!] Notificação não suportada nesse sistema: {e}")
+        print(f"[{title}] {message}")
+
+# Exemplo de uso
+show_notification("Ei, Lumiert!", "Sua batida tá tão pesada que derrubou meu processo.")
